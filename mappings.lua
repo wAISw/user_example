@@ -6,8 +6,14 @@
 return {
   -- first key is the mode
   n = {
+    ["<C-S-i>"] = { "<cmd>Format<cr>", desc = "Format document" },
+    ["<C-S-/>"] = { "<cmd>EslintFixAll<cr>", desc = "Fix All Esling Erorrs" },
+  -- Navigate buffers
+    ["L"] = { "<cmd>bnext<cr>", desc = "Next buffer" },
+    ["H"] = { "<cmd>bprevious<cr>", desc = "Previous buffer" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
+    ["<leader>o"] = { "<cmd>Neotree focus buffers<cr>", desc = "Focus Explorer" },
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
     ["<leader>bD"] = {
       function()
@@ -25,4 +31,9 @@ return {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
   },
+  i = {
+    ["<Right>"] = { 'copilot#Accept()', silent = true, expr = true },
+    ["<C-Right>"] = { 'copilot#Next()', silent = true, expr = true },
+    ["<C-Left>"] = { 'copilot#Previous()', silent = true, expr = true },
+  }
 }
