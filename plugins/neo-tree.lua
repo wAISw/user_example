@@ -115,10 +115,12 @@ return {
       follow_current_file = true,
       hijack_netrw_behavior = "open_current",
       use_libuv_file_watcher = true,
-        commands = global_commands,
-        window = {
-          mappings = {
-            h = "toggle_hidden",
+      commands = global_commands,
+      window = {
+        mappings = {
+          h = "toggle_hidden",
+        },
+      },
     },
     event_handlers = {
       {
