@@ -26,6 +26,8 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["K"] = { "<cmd>vim.lsp.buf.hover<cr>", desc = "Hover Documentation" },
+    -- ["J"] = { "<cmd>vim.lsp.buf.signature_help<cr>", desc = "Signature Documentation" },
   },
   t = {
     -- setting a mapping to false will disable it
