@@ -118,21 +118,48 @@ return {
           ["<space>"] = false, -- disable space until we figure out which-key disabling
           ["H"] = "prev_source",
           ["L"] = "next_source",
-          -- ["[b"] = "prev_source",
-          -- ["]b"] = "next_source",
           F = utils.is_available "telescope.nvim" and "find_in_dir" or nil,
           O = "system_open",
           Y = "copy_selector",
-          h = "toggle_hidden",
-          o = "child_or_open",
-          l = "focus_preview"
-          -- o = "open",
+          h = "parent_or_close",
+          l = "child_or_open",
+          o = "open",
+          ["<M-l>"] = "focus_preview",
         },
       },
       filesystem = {
         follow_current_file = true,
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
+        window = {
+          width = 30,
+          mappings = {
+            ["<M-h>"] = "toggle_hidden",
+          },
+        },
+        filtered_items = {
+          visible = false, -- when true, they will just be displayed differently than normal items
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_hidden = true, -- only works on Windows for hidden files/directories
+          hide_by_name = {
+            --"node_modules"
+          },
+          hide_by_pattern = { -- uses glob style patterns
+            --"*.meta",
+            --"*/src/*/tsconfig.json",
+          },
+          always_show = { -- remains visible even if other settings would normally hide it
+            --".gitignored",
+          },
+          never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+            --".DS_Store",
+            --"thumbs.db"
+          },
+          never_show_by_pattern = { -- uses glob style patterns
+            --".null-ls_*",
+          },
+        },
       },
       event_handlers = {
         {
